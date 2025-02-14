@@ -13,5 +13,4 @@ int main(void)
 	printf("%d\n", (int) sizeof(void));
 
 	return (0);
-
-
+}
