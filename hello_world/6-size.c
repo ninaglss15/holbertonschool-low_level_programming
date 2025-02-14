@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - prinf see all types octes (char etc)
- * return 0
+ * return 
  */
 int main(void)
 {
