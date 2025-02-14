@@ -9,8 +9,7 @@ int main(void)
 	printf("%d\n", (int) sizeof(int));
 	printf("%d\n", (int) sizeof(long));
 	printf("%d\n", (int) sizeof(float));
-	printf("%d\n", (int) sizeof(double));
-	printf("%d\n", (int) sizeof(void));
+	printf("%d\n", (int) sizeof(long long));
 
 	return (0);
 }
