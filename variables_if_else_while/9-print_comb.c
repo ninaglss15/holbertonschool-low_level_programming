@@ -6,16 +6,16 @@
  */
 int main(void)
 {
-int x;
-for (x = 0; x < 10; x++)
+int num;
+for (num = 0; num < 10; num++)
 {
-printf("%d", x);
-if (x < 9)
+putchar(num + '0');
+if (num < 9)
 {
-printf(", ");
+putchar(',');
+putchar(' ');
 }
 }
-printf("\n");
+putchar('\n');
 return (0);
 }
-
