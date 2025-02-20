@@ -5,7 +5,7 @@
 /**
  * print_sign - Prints the alphabet in lowercase and then in uppercase.
  *
- * @c: int
+ * @n: int
  *
  * Return: 0
  */
