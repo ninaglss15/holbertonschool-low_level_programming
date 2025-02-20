@@ -1,9 +1,11 @@
 #include "main.h"
 #include <unistd.h>
 /**
- * isalpha - Prints the alphabet in lowercase and then in uppercase.
+ * _isalpha - Prints the alphabet in lowercase and then in uppercase in c.
  *
  * Return: Always 0.
+ *
+ *@c: int
  */
 int _isalpha(int c)
 {
