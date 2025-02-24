@@ -10,7 +10,14 @@
  */
 void print_line(int n)
 {
+	int idx;
+
 	if (n > 0)
-	write(1, "__________", 10);
+	{
+	for (idx = 0; idx < n; idx++)
+	{
+	_putchar('_');
+	}
 	_putchar('\n');
+	}
 }
