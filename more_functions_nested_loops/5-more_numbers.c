@@ -1,6 +1,6 @@
 #include "main.h"
 #include <unistd.h>
-
+#include <stdio.h>
 /**
  * more_numbers - Prints the alphabet in lowercase and then in uppercase.
  *
@@ -16,9 +16,9 @@ void more_numbers(void)
 	{
 		for (num = 0; num <= 14; num++)
 		{
-		_putchar(num);
+		printf("%d", num);
 
 		}
-		_putchar('\n');
+	printf("\n");
 	}
 }
