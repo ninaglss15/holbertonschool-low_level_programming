@@ -10,14 +10,8 @@
  */
 void print_line(int n)
 {
-	_putchar('_');
-	_putchar('_');
-	_putchar('$');
-	_putchar('\n');
-
-	for (n = 0; n < 10; n++)
-	{
-	_putchar('_');
-	}
-	_putchar('\n');
+	if (n > 0)
+	write(1, "__\n", 3);
+	if (n < 0)
+	write(1, "__________", 10);
 }
