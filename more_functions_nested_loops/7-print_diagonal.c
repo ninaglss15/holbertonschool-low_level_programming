@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <stdio.h>
 /**
- * print_line - Prints the alphabet in lowercase and then in uppercase.
+ * print_diagonal - Prints the alphabet in lowercase and then in uppercase.
  *
  * Return: Always 0.
  *
