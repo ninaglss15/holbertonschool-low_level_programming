@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 #include <stdio.h>
 /**
  * print_most_numbers - Prints the alphabet in lowercase and then in uppercase.
