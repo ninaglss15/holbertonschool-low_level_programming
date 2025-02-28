@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
- * _puts - check the code
+ * puts2 - check the code
  *
  *@str: dfdxcesfsqfqre
  *
@@ -11,7 +11,7 @@
  */
 void puts2(char *str)
 {
-	for (; *str != '\0'; str+= 2)
+	for (; *str != '\0'; str += 2)
 	{
 	_putchar(*str);
 	}
