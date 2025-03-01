@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
- * puts2 - check the code
+ * *_strcpy - check the code
  *
  *@src: dfdxcesfsqfqre
  *
