@@ -13,17 +13,17 @@
  */
 void reverse_array(int *a, int n)
 {
-	int length = 0;
+	int temp;
+	int start = 0;
+	int end = n - 1;
 
-
-	for (; s[length] != '\0'; length++)
+	while (start < end)
 	{
+	temp = a[start];
+	a[start] = a[end];
+	a[end] = temp;
+	start++;
+	end--;
 	}
-	for (; length > 0; length--)
-	{
-	_putchar(s[length - 1]);
-	}
-
-	_putchar('\n');
 }
 
