@@ -3,9 +3,9 @@
 #include <string.h>
 
 /**
- * puts2 - check the code
+ * leet - check the code
  *
- *@str: dfdxcesfsqfqre
+ *@n: dfdxcesfsqfqre
  *
  * Return: Always 0.
  */
@@ -27,6 +27,6 @@ char *leet(char *n)
 	}
 	}
 	}
-	return n;
+	return (n);
 }
 
