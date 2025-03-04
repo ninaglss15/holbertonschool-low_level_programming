@@ -2,9 +2,11 @@
 #include "main.h"
 
 /**
- * _puts_recursion - check the code
+ * _pow_recursion - check the code
  *
- *@s: dfdxcesfsqfqre
+ *@x: dfdxcesfsqfqre
+ *
+ *@y: iejciu
  *
  * Return: Always 0.
  */
@@ -17,5 +19,5 @@ int _pow_recursion(int x, int y)
 	return (1);
 
 	else
-	return (x * _pow_recursion( x, y - 1));
+	return (x * _pow_recursion(x, y - 1));
 }
