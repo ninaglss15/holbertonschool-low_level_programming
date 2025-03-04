@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * _puts_recursion - check the code
+ * _print_rev_recursion - check the code
  *
  *@s: dfdxcesfsqfqre
  *
