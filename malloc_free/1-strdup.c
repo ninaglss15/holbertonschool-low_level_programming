@@ -3,7 +3,7 @@
 /**
  * *_strdup - check the code
  *
- *@str: lkfkrfk
+ *@str: lkfkrrrffk
  *
  * Return: Always 0.
  */
