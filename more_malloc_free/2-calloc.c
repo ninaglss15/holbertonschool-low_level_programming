@@ -13,23 +13,20 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	size_t total_size;
-	void *p;
+	{
+	char *p;
+	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
-	return (NULL);
+		return (NULL);
 
-	if (nmemb > SIZE_MAX / size)
-	return (NULL);
+	p = malloc(nmemb * size);
 
-	total_size = nmemb * size;
-
-	p = malloc(total_size);
 	if (p == NULL)
-	return (NULL);
+		return (NULL);
 
-
-	memset(p, 0, total_size);
+	for (i = 0; i < (nmemb * size); i++)
+		p[i] = 0;
 
 	return (p);
 }
