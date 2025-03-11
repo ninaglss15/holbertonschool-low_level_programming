@@ -1,37 +1,35 @@
-#include <string.h>
-#include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stddef.h>
+#include <stdint.h>
 /**
- * *malloc_checked - check the code
+ * *_calloc - check the code
  *
- *@b: lkfkrrrffk
+ *@size: dfdxcesfsqfqre
+ *
+ *@nmemb: lkfkrfk
  *
  * Return: Always 0.
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *p;
-	unsigned int i = 0;
-	unsigned int o = 0;
+	size_t total_size;
+	void *p;
 
-	if (nmemb == 0)
-	return (NULL);
-	if (size == 0)
+	if (nmemb == 0 || size == 0)
 	return (NULL);
 
 	if (nmemb > SIZE_MAX / size)
-    	return NULL;
+	return (NULL);
 
-	o = nmemb * size;
-	p = malloc(o);
+	total_size = nmemb * size;
 
+	p = malloc(total_size);
 	if (p == NULL)
 	return (NULL);
 
-	while (i < o)
-	{
-	p[i] = 0;
-	i++;
-	}
+
+	memset(p, 0, total_size);
+
 	return (p);
 }
