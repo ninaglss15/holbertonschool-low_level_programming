@@ -2,6 +2,7 @@
 #define DOG_H
 
 typedef struct dog {
+    dog_t my_dog;
     char *name;
     float age;
     char *owner;
