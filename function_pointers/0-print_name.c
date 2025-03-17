@@ -3,7 +3,7 @@
 
 /**
  * print_name - Prints a name using the function passed as a pointer
- * @name: The name of the person
+ * @name: the person
  * @f: A pointer to a function that takes a char pointer as argument
  *
  * Return: Nothing
