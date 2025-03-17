@@ -5,7 +5,7 @@
  * array_iterator - Prints a name
  * @size: the person
  * @array: A pointer to a function
- * @action: ecececec
+ * @action: pointer to a int 
  *
  * Return: Nothing
  */
