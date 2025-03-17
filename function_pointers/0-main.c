@@ -14,7 +14,7 @@ void print_name_as_is(char *name)
 
 /**
  * print_name_uppercase - print a name in uppercase
- * @name: name of the person
+ * @name: the person
  *
  * Return: Nothing.
  */
@@ -26,7 +26,7 @@ void print_name_uppercase(char *name)
     i = 0;
     while (name[i])
     {
-        if (name[i] >= 'a' && name[i] <= 'z')
+		if (name[i] >= 'a' && name[i] <= 'z')
         {
             putchar(name[i] + 'A' - 'a');
         }

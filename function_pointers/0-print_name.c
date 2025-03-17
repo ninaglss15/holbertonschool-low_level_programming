@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 /**
- * print_name - Prints a name using the function passed as a pointer
+ * print_name - Prints a name
  * @name: the person
- * @f: A pointer to a function that takes a char pointer as argument
+ * @f: A pointer to a function
  *
  * Return: Nothing
  */
