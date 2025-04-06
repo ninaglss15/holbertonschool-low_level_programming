@@ -1,57 +1,78 @@
-#include <stdio.h>
-#include <unistd.h>
 #include <fcntl.h>
-#define BYTES_PER_READ 100
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+#define BUFSIZE 1024
 
 /**
-* @brief Copies the contents of file_1 to file_2
-*/
+ * safe_close - Ferme un descripteur de fichier en gérant les erreurs
+ * @fd: descripteur de fichier à fermer
+ */
+void safe_close(int fd)
+{
+	if (close(fd) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+}
+
+/**
+ * main - Copie le contenu d’un fichier vers un autre
+ * @argc: nombre d’arguments
+ * @argv: tableau d’arguments
+ * Return: 0 si succès, codes 97 à 100 sinon
+ */
 int main(int argc, char *argv[])
 {
-    char* file_1_path = argv[1];
-	char* file_2_path = argv[2];
-    char reading_buffer[BYTES_PER_READ];
-	int bytes_read, bytes_written;
-    int file_2;
-    int file_1;
+	int source_fd, dest_fd;
+	ssize_t read_count, write_count;
+	char temp_buffer[BUFSIZE];
 
-    if (argc < 3)
-    {
-		fprintf(stderr, "Usage: %s <file_1> <file_2>\n", argv[0]);
-		return (1);
+	if (argc != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
 	}
 
-	file_1 = open(file_1_path, O_RDONLY);
-
-	if (file_1 < 0) {
-		fprintf(stderr, "Error opening first file\n");
-		return (1);
+	source_fd = open(argv[1], O_RDONLY);
+	if (source_fd < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
 	}
 
-	file_2 = open(file_2_path, O_WRONLY | O_TRUNC | O_CREAT, 0666);
+	dest_fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (dest_fd < 0)
+	{
+		safe_close(source_fd);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
 
-	if (file_2 < 0) {
-		fprintf(stderr, "Error opening second file\n");
-		return (1);
-    }
-
-	while ((bytes_read = read(file_1, reading_buffer, BYTES_PER_READ)) > 0) {
-
-
-		reading_buffer[bytes_read] = '\0';
-
-		if ((bytes_written = write(file_2, reading_buffer, bytes_read) < 0))
+	while ((read_count = read(source_fd, temp_buffer, BUFSIZE)) > 0)
+	{
+		write_count = write(dest_fd, temp_buffer, read_count);
+		if (write_count != read_count)
 		{
-			fprintf(stderr, "Error writing to second file\n");
-			return (1);
+			safe_close(source_fd);
+			safe_close(dest_fd);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
 		}
-
 	}
 
-	if (bytes_read < 0) {
-		fprintf(stderr, "Error reading from first file\n");
-		return (1);
+	if (read_count == -1)
+	{
+		safe_close(source_fd);
+		safe_close(dest_fd);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
 	}
+
+	safe_close(source_fd);
+	safe_close(dest_fd);
 
 	return (0);
 }
